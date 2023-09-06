@@ -1,5 +1,10 @@
 @import "../../assets/scss/font.scss";
 @import "../../assets/scss/variable.scss";
+@mixin mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .home {
   background-color: $background-primary-color;
 }
@@ -37,7 +42,7 @@
 }
 .bg-second {
   background-color: #6248b1;
-  height: 800px;
+  // height: 800px;
   width: 100%;
 }
 .content {
@@ -66,5 +71,35 @@
       border-color: $text-secondary-color !important;
       color: $text-secondary-color !important;
     }
+  }
+}
+.feature {
+  @include mid();
+  padding-bottom: 64px;
+  margin-top: 180px;
+  color: #fff;
+  &__title {
+    margin: 0;
+  }
+  &__paragraph {
+    text-align: center;
+    color: #fff;
+    width: 520px;
+    font-weight: 500;
+  }
+}
+.banner {
+  @include mid();
+  padding-bottom: 128px;
+  &__item {
+    width: 380px;
+    padding: 8px;
+  }
+  &__title {
+    font-family: $font;
+    font-size: 21px;
+    line-height: 25px;
+    font-weight: 600;
+    color: $text-secondary-color;
   }
 }

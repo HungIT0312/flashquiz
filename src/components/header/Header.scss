@@ -1,14 +1,23 @@
 @import "../../assets/scss/font.scss";
 @import "../../assets/scss/variable.scss";
 .menu {
-  position: fixed;
+  position: sticky;
+  top: 0;
   z-index: 100;
-  width: 100vw;
   justify-content: space-between;
   align-items: center;
   padding: 28px 120px;
   background-color: $background-primary-color;
   font-family: $font;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
+  transition-property: all;
+  &__scrolled {
+    position: static;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 0.3s;
+    transition-property: all;
+  }
 }
 .nav {
   justify-content: space-around;
@@ -19,10 +28,13 @@
   line-height: 28px;
   margin-left: 24px;
   &-content {
+    border-bottom: 3px solid transparent;
     color: $text-primary-color;
+    transition: border-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   &:hover &-content {
     color: $text-secondary-color !important;
+    border-bottom: 3px solid $text-secondary-color;
   }
 }
 .active {
@@ -34,4 +46,5 @@
   font-weight: 600;
   font-size: 16px;
   color: $text-primary-color;
+  cursor: pointer;
 }

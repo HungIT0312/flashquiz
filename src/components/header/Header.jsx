@@ -1,9 +1,23 @@
 import { Avatar, Space } from "antd";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.scss";
 const Header = () => {
   //   const { pathname } = useLocation();
+  const [isScroll, setIsScroll] = useState();
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 630) {
+        setIsScroll(true);
+      } else {
+        setIsScroll(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const links = [
     {
@@ -33,7 +47,7 @@ const Header = () => {
     );
   });
   return (
-    <Space className="menu">
+    <Space className={`menu ${isScroll ? "menu__scrolled" : ""}`}>
       <Space className="nav">{navItems}</Space>
       <Space className="login">
         Nguyen Hung
