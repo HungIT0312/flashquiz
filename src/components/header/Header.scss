@@ -1,0 +1,37 @@
+@import "../../assets/scss/font.scss";
+@import "../../assets/scss/variable.scss";
+.menu {
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 120px;
+  background-color: $background-primary-color;
+  font-family: $font;
+}
+.nav {
+  justify-content: space-around;
+}
+.nav__item {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  margin-left: 24px;
+  &-content {
+    color: $text-primary-color;
+  }
+  &:hover &-content {
+    color: $text-secondary-color !important;
+  }
+}
+.active {
+  color: $text-secondary-color !important;
+}
+.login {
+  font-family: "Quicksand", Helvetica, sans-serif;
+  line-height: 24px;
+  font-weight: 600;
+  font-size: 16px;
+  color: $text-primary-color;
+}
