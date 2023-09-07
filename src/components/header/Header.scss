@@ -48,3 +48,30 @@
   color: $text-primary-color;
   cursor: pointer;
 }
+.options {
+  width: 159px;
+  font-family: $font;
+  font-size: 16px;
+  font-weight: 450;
+  line-height: 24px;
+  padding-right: 8px;
+  &__item {
+    width: 100%;
+    color: $text-secondary-color;
+    padding: 6px;
+    border-radius: 4px;
+    &:hover {
+      background-color: #f1f4f6;
+      cursor: pointer;
+    }
+  }
+  &__icon {
+    padding-left: 4px;
+  }
+}
+.sign_out {
+  color: #f25158;
+}
+.border--bottom {
+  border-bottom: 1px solid #ccc;
+}
