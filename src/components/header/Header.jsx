@@ -1,10 +1,11 @@
 import { BookOutlined, LogoutOutlined, UserOutlined } from "@ant-design/icons";
-import { Avatar, Popover, Space } from "antd";
+import { Avatar, Image, Popover, Space } from "antd";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Header.scss";
+import logo from "../../assets/images/logoMain.png";
 const Header = () => {
-  //   const { pathname } = useLocation();
+  const { pathname } = useLocation();
   const [isScroll, setIsScroll] = useState();
   useEffect(() => {
     const handleScroll = () => {
@@ -27,21 +28,26 @@ const Header = () => {
     },
     {
       label: "Vocabulary",
-      href: "/",
+      href: "/Vocabulary",
     },
     {
       label: "Grammar",
-      href: "/",
+      href: "/Grammar",
     },
     {
       label: "Dictionary",
-      href: "/",
+      href: "/Dictionary",
     },
   ];
   const navItems = links.map((item, index) => {
     return (
-      <div key={index} className="nav__item">
-        <Link className={`nav__item-content `} to={item.href}>
+      <div key={index} className="nav__item ">
+        <Link
+          className={`nav__item-content ${
+            pathname === item.href ? "active" : ""
+          }`}
+          to={item.href}
+        >
           {item.label}
         </Link>
       </div>
@@ -49,12 +55,6 @@ const Header = () => {
   });
 
   const content = (
-    // <Menu
-    //   defaultSelectedKeys={["1"]}
-    //   defaultOpenKeys={["sub1"]}
-    //   mode="inline"
-    //   items={items}
-    // />
     <Space direction="vertical" className="options">
       <Space className="options__item">
         <BookOutlined className="options__icon" />
@@ -80,7 +80,10 @@ const Header = () => {
   );
   return (
     <Space className={`menu ${isScroll ? "menu__scrolled" : ""}`}>
-      <Space className="nav">{navItems}</Space>
+      <Space className="nav">
+        <Image src={logo} preview={false} width={48}></Image>
+        {navItems}
+      </Space>
       <Popover placement="bottom" trigger="click" content={content}>
         <Space className="login">
           Nguyen Hung

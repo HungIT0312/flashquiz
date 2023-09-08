@@ -1,5 +1,5 @@
 import { Button, Card, Col, Image, Layout, Row, Space } from "antd";
-import { Content, Footer } from "antd/es/layout/layout";
+import { Content } from "antd/es/layout/layout";
 import React from "react";
 import Header from "../../components/header/Header";
 import "./Home.scss";
@@ -7,6 +7,7 @@ import backGround from "../../assets/images/background.png";
 import dynamic from "../../assets/images/learn-with-a-dynamic-platform-500.png";
 import AiImage from "../../assets/images/ai-based-real-world-examples-500.png";
 import funImage from "../../assets/images/fun-learning-tools-500.png";
+import Footer from "../../components/footer/Footer";
 
 const Home = () => {
   return (
@@ -82,7 +83,7 @@ const Home = () => {
           <Space></Space>
         </Space>
       </Content>
-      {/* <Footer>Footer</Footer> */}
+      <Footer />
     </Layout>
   );
 };
