@@ -2,8 +2,8 @@ import { BookOutlined, LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Image, Popover, Space } from "antd";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./Header.scss";
 import logo from "../../assets/images/logoMain.png";
+import "./Header.scss";
 const Header = () => {
   const { pathname } = useLocation();
   const [isScroll, setIsScroll] = useState();
@@ -24,19 +24,16 @@ const Header = () => {
   const links = [
     {
       label: "Home",
-      href: "/",
+      href: "/home",
     },
     {
       label: "Vocabulary",
-      href: "/Vocabulary",
+      href: "/vocabulary",
     },
-    {
-      label: "Grammar",
-      href: "/Grammar",
-    },
+
     {
       label: "Dictionary",
-      href: "/Dictionary",
+      href: "/dictionary",
     },
   ];
   const navItems = links.map((item, index) => {

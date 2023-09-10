@@ -9,7 +9,7 @@ const SearchBox = (props) => {
     props.onInput(keyword);
   };
   return (
-    <Space wrap className="search font">
+    <Space wrap className="search font align-center">
       <Input
         className="search__box font"
         size="large"

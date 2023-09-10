@@ -1,25 +1,31 @@
-import { Col, Layout, Row, Space } from "antd";
-import React, { useState } from "react";
-import Header from "../../components/header/Header";
+import { Col, Row, Space } from "antd";
 import { Content } from "antd/es/layout/layout";
+import React, { useState } from "react";
 import SearchBox from "../../components/Words/SearchBox";
-import "./Dictionary.scss";
 import Result from "../../components/card/result";
-import Footer from "../../components/footer/Footer";
+import "./Dictionary.scss";
+import { useNavigate } from "react-router-dom";
+import Phonetic from "../../components/Words/Phonetic";
 const Dictionary = () => {
   const [keyword, setKeyword] = useState("");
+  const [isSelected, setIsSelected] = useState(true);
+  const navigate = useNavigate();
   const handleInput = (key) => {
-    console.log(key);
+    setIsSelected(!key);
     setKeyword(key);
   };
   const handleSelectWord = (word) => {
-    console.log("Ok roi nha");
+    setIsSelected(true);
+    navigate(`/dictionary?entry=${word}`);
   };
   return (
-    <Layout className="dictionary">
-      <Header />
-      <Content className="contentdic">
-        <SearchBox onInput={handleInput} />
+    <Content className="contentdic">
+      <SearchBox onInput={handleInput} />
+      {isSelected ? (
+        <Space>
+          <Phonetic />
+        </Space>
+      ) : (
         <Space>
           <Row gutter={[32, 16]}>
             <Col span={12}>
@@ -50,9 +56,8 @@ const Dictionary = () => {
             </Col>
           </Row>
         </Space>
-      </Content>
-      <Footer />
-    </Layout>
+      )}
+    </Content>
   );
 };
 
