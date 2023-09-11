@@ -1,13 +1,33 @@
 import { SearchOutlined } from "@ant-design/icons";
 import { Avatar, Divider, Input, Space } from "antd";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import en from "../../assets/images/en-circle.png";
+import { searchByWord } from "../../stores/search-word/searchSlice";
 import "./SearchBox.scss";
 
 const SearchBox = (props) => {
-  const onChangeInput = (keyword) => {
-    props.onInput(keyword);
+  const dispatch = useDispatch();
+  const [inputValue, setInputValue] = useState("");
+  // const { word } = useSelector((state) => state.search);
+  const onChangeInput = (event) => {
+    const newValue = event.target.value;
+    setInputValue(newValue);
   };
+  const processInput = (value) => {
+    dispatch(searchByWord(value));
+  };
+  useEffect(() => {
+    const debounceTimeout = setTimeout(() => {
+      processInput(inputValue);
+    }, 300);
+
+    return () => {
+      clearTimeout(debounceTimeout);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inputValue]);
+
   return (
     <Space wrap className="search font align-center">
       <Input
@@ -18,7 +38,7 @@ const SearchBox = (props) => {
         style={{
           backgroundColor: "transparent",
         }}
-        onChange={(e) => onChangeInput(e.target.value)}
+        onChange={onChangeInput}
       ></Input>
       <Space className="language fontmain">
         <span className="fontmain">EN</span>

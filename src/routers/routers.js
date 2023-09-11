@@ -3,6 +3,7 @@ import Home from "../pages/home/Home";
 import Dictionary from "../pages/dictionary/Dictionary";
 import HomePage from "../layouts/HomePage/HomePage";
 import Vocabulary from "../pages/vocabulary/Vocabulary";
+import Dashboard from "../layouts/Dashboard/Dashboard";
 const routers = createBrowserRouter([
   {
     path: "/",
@@ -22,7 +23,21 @@ const routers = createBrowserRouter([
       },
     ],
   },
-  // { path: "/Dictionary", element: <Dictionary /> },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "profile",
+      },
+      {
+        path: "wordLists",
+      },
+      {
+        path: "leitner",
+      },
+    ],
+  },
 ]);
 
 export default routers;

@@ -1,12 +1,18 @@
-import { Avatar, Space } from "antd";
-import React from "react";
-import "./Meaning.scss";
 import {
   BookOutlined,
   InboxOutlined,
   PlusCircleFilled,
 } from "@ant-design/icons";
-const Meaning = (props) => {
+import { Space } from "antd";
+import React, { useState } from "react";
+import "./Meaning.scss";
+// import { useSelector } from "react-redux";
+const Meaning = () => {
+  // const { word } = useSelector((state) => state.search);
+  const [isChoice, setIsChoice] = useState(false);
+  const onChoice = (e) => {
+    setIsChoice(!isChoice);
+  };
   return (
     <Space className="wrappered border border--lightblue" direction="vertical">
       <Space style={{ borderBottom: "1px solid #ccc", width: "100vh" }}>
@@ -21,8 +27,11 @@ const Meaning = (props) => {
       </Space>
       <Space className="synonyms"></Space>
       <Space className="choice">
-        <div className="choice__item">
-          <InboxOutlined className="choice__icon" />
+        <div
+          className={`choice__item ${isChoice ? "icon--active" : ""}`}
+          onClick={onChoice}
+        >
+          <InboxOutlined className="choice__icon " />
           <PlusCircleFilled className="choice__icon--sub" />
         </div>
         <div className="choice__item">

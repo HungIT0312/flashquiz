@@ -1,12 +1,13 @@
-import { BookOutlined, LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import { Avatar, Image, Popover, Space } from "antd";
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logoMain.png";
+import dashboardLink from "../../routers/dashboard";
 import "./Header.scss";
 const Header = () => {
   const { pathname } = useLocation();
   const [isScroll, setIsScroll] = useState();
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 630) {
@@ -53,26 +54,17 @@ const Header = () => {
 
   const content = (
     <Space direction="vertical" className="options">
-      <Space className="options__item">
-        <BookOutlined className="options__icon" />
-        <span className="options__label">Word List</span>
-      </Space>
-      <Space className="options__item ">
-        <UserOutlined className="options__icon" />
-        <span className="options__label">Profile</span>
-      </Space>
-      <hr
-        style={{
-          padding: "0px",
-          margin: "0px",
-          color: "#ccc",
-          backgroundColor: "#ccc",
-        }}
-      />
-      <Space className="options__item sign_out">
-        <LogoutOutlined className="options__icon" />
-        <span className="options__label">Sign Out</span>
-      </Space>
+      {dashboardLink.map((link, index) => (
+        <Space
+          className={`options__item ${
+            link.label === "Sign Out" ? "sign_out" : ""
+          }`}
+          onClick={() => navigate(`/dashboard${link?.path}`)}
+        >
+          <Space className="options__icon">{link?.icon}</Space>
+          <span className="options__label">{link?.label}</span>
+        </Space>
+      ))}
     </Space>
   );
   return (

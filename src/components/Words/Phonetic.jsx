@@ -4,7 +4,10 @@ import React from "react";
 import en from "../../assets/images/en-circle.png";
 import "./Phonetic.scss";
 import Meaning from "./Meaning";
+import { useSelector } from "react-redux";
 const Phonetic = (props) => {
+  const { word } = useSelector((state) => state.search);
+
   return (
     <div>
       <Row gutter={[32, 16]}>
@@ -12,7 +15,7 @@ const Phonetic = (props) => {
           <Space className="wrappered border border--blue">
             <Space direction="vertical" wrap>
               <Space className="phonetic">
-                <span className="phonetic__word">{props?.word} Hung</span>
+                <span className="phonetic__word">{word}</span>
                 <span>
                   <SoundFilled className="phonetic__icon" />
                 </span>
