@@ -4,6 +4,7 @@ import Dictionary from "../pages/dictionary/Dictionary";
 import HomePage from "../layouts/HomePage/HomePage";
 import Vocabulary from "../pages/vocabulary/Vocabulary";
 import Dashboard from "../layouts/Dashboard/Dashboard";
+import Profile from "../pages/profile/Profile";
 const routers = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +30,7 @@ const routers = createBrowserRouter([
     children: [
       {
         path: "profile",
+        element: <Profile />,
       },
       {
         path: "wordLists",

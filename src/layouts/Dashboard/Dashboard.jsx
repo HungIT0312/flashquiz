@@ -4,9 +4,11 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import CustomSider from "../../components/sider/CustomSider";
 import "./dashboard.scss";
 import getFullPath from "../../helpers/getPath";
+import changeTitle from "../../helpers/changeTitle";
 const { Header, Content } = Layout;
 const Dashboard = () => {
   const { pathname } = useLocation();
+  changeTitle(pathname);
   const path = getFullPath(pathname);
   const {
     token: { colorBgContainer },

@@ -4,8 +4,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logoMain.png";
 import dashboardLink from "../../routers/dashboard";
 import "./Header.scss";
+import changeTitle from "../../helpers/changeTitle";
 const Header = () => {
   const { pathname } = useLocation();
+  changeTitle(pathname);
   const [isScroll, setIsScroll] = useState();
   const navigate = useNavigate();
   useEffect(() => {
