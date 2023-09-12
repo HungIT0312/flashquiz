@@ -8,7 +8,7 @@ const Footer = () => {
       <span className="footer__content">
         Copyright © 2023 PBL6 DUT. | All Rights Reserved | Privacy Policy
       </span>
-      <Space lassName="footer__icon">
+      <Space className="footer__icon">
         <InstagramOutlined />
         <TwitterOutlined />
       </Space>
