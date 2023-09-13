@@ -58,6 +58,7 @@ const Header = () => {
     <Space direction="vertical" className="options">
       {dashboardLink.map((link, index) => (
         <Space
+          key={index}
           className={`options__item ${
             link.label === "Sign Out" ? "sign_out" : ""
           }`}

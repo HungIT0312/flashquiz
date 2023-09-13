@@ -8,10 +8,10 @@ import "./CustomSider.scss";
 const CustomSider = (props) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const a = useLocation();
-  console.log(a);
+  // const a = useLocation();
+  // console.log(a);
   return (
-    <Sider width={286} className="sidermenu">
+    <Sider collapsed={false} width={286} className="sidermenu">
       <Space direction="vertical" className="infor">
         <Link className="infor__logo" to={"/home"}>
           <Image src={logo} preview={false} width={48} />
