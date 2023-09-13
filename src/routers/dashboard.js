@@ -14,12 +14,12 @@ const dashboardLink = [
   {
     path: "/leitner",
     label: "Leitner",
-    icon: <FolderOutlined />,
+    icon: <InboxOutlined />,
   },
   {
     path: "/wordLists",
     label: "My Word Lists",
-    icon: <InboxOutlined />,
+    icon: <FolderOutlined />,
   },
   {
     // path: "",
