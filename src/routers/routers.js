@@ -5,6 +5,7 @@ import HomePage from "../layouts/HomePage/HomePage";
 import Vocabulary from "../pages/vocabulary/Vocabulary";
 import Dashboard from "../layouts/Dashboard/Dashboard";
 import Profile from "../pages/profile/Profile";
+import MyWordLists from "../pages/my-word-lists/MyWordLists";
 const routers = createBrowserRouter([
   {
     path: "/",
@@ -15,7 +16,7 @@ const routers = createBrowserRouter([
         element: <Dictionary />,
       },
       {
-        path: "home",
+        path: "",
         element: <Home />,
       },
       {
@@ -34,6 +35,7 @@ const routers = createBrowserRouter([
       },
       {
         path: "wordLists",
+        element: <MyWordLists />,
       },
       {
         path: "leitner",

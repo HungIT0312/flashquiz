@@ -27,7 +27,7 @@ const Header = () => {
   const links = [
     {
       label: "Home",
-      href: "/home",
+      href: "/",
     },
     {
       label: "Vocabulary",
